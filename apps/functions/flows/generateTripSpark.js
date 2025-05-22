@@ -1,35 +1,32 @@
-import { defineFlow } from '@genkit-ai/flow';
-import { generate } from '@genkit-ai/ai';
-import { gemini15Flash } from '@genkit-ai/googleai';
-import { z } from 'zod';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateTripSparkFlow = void 0;
+const flow_1 = require("@genkit-ai/flow");
+const ai_1 = require("@genkit-ai/ai");
+const googleai_1 = require("@genkit-ai/googleai");
+const zod_1 = require("zod");
 // Input schema
-const GenerateTripSparkInput = z.object({
-  resortId: z.string(),
-  resortName: z.string(),
-  resortLocation: z.string(),
-  resortDescription: z.string(),
-  resortKeywords: z.array(z.string()),
+const GenerateTripSparkInput = zod_1.z.object({
+    resortId: zod_1.z.string(),
+    resortName: zod_1.z.string(),
+    resortLocation: zod_1.z.string(),
+    resortDescription: zod_1.z.string(),
+    resortKeywords: zod_1.z.array(zod_1.z.string()),
 });
-
 // Output schema
-const GenerateTripSparkOutput = z.object({
-  spark: z.string().describe('Creative trip spark idea for the resort'),
+const GenerateTripSparkOutput = zod_1.z.object({
+    spark: zod_1.z.string().describe('Creative trip spark idea for the resort'),
 });
-
-export const generateTripSparkFlow = defineFlow(
-  {
+exports.generateTripSparkFlow = (0, flow_1.defineFlow)({
     name: 'generateTripSparkFlow',
     inputSchema: GenerateTripSparkInput,
     outputSchema: GenerateTripSparkOutput,
-  },
-  async (input: z.infer<typeof GenerateTripSparkInput>) => {
+}, async (input) => {
     const { resortName, resortLocation, resortDescription, resortKeywords } = input;
-
     // Generate a creative trip spark using Gemini
-    const tripSparkResponse = await generate({
-      model: gemini15Flash,
-      prompt: `
+    const tripSparkResponse = await (0, ai_1.generate)({
+        model: googleai_1.gemini15Flash,
+        prompt: `
         Create an imaginative and inspiring "trip spark" for a ski trip to this resort.
         This should be a short, evocative 2-3 sentence description that captures the magic and excitement of skiing at this location.
         
@@ -52,9 +49,8 @@ export const generateTripSparkFlow = defineFlow(
         Create a unique trip spark for ${resortName}:
       `,
     });
-
     return {
-      spark: tripSparkResponse.text(),
+        spark: tripSparkResponse.text(),
     };
-  }
-);
+});
+//# sourceMappingURL=generateTripSpark.js.map

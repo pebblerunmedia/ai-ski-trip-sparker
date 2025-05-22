@@ -34,11 +34,11 @@
       "port": 5001
     },
     "hosting": {
-      "port": 5000
+      "port": 5002
     },
     "ui": {
       "enabled": true,
-      "port": 4000
+      "port": 4040
     },
     "singleProjectMode": true
   }

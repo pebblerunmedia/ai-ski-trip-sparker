@@ -17,12 +17,18 @@ importers:
 
   apps/functions:
     dependencies:
+      '@genkit-ai/ai':
+        specifier: ^0.5.17
+        version: 0.5.17
       '@genkit-ai/core':
         specifier: ^0.5.0
         version: 0.5.17
       '@genkit-ai/firebase':
         specifier: ^0.5.0
         version: 0.5.17(@genkit-ai/ai@0.5.17)(@genkit-ai/core@0.5.17)(@genkit-ai/flow@0.5.17)(@google-cloud/firestore@7.11.1)(firebase-admin@12.7.0)(firebase-functions@5.1.1(firebase-admin@12.7.0))(prettier@3.5.3)(typescript@5.8.3)
+      '@genkit-ai/flow':
+        specifier: ^0.5.17
+        version: 0.5.17
       '@genkit-ai/googleai':
         specifier: ^0.5.0
         version: 0.5.17(@genkit-ai/ai@0.5.17)(@genkit-ai/core@0.5.17)
