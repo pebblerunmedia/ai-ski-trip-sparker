@@ -1,0 +1,30 @@
+{
+  "name": "ai-ski-trip-sparker",
+  "version": "1.0.0",
+  "description": "AI-powered ski resort suggestion and trip spark generator",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --recursive build",
+    "lint": "pnpm --recursive lint",
+    "type-check": "pnpm --recursive type-check",
+    "clean": "pnpm --recursive clean",
+    "genkit:dev": "pnpm --filter functions genkit:dev",
+    "genkit:deploy": "pnpm --filter functions deploy",
+    "firebase:emulators": "firebase emulators:start",
+    "setup": "pnpm install && pnpm --filter functions setup"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.0"
+  },
+  "packageManager": "pnpm@9.1.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}
