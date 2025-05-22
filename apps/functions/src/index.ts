@@ -28,7 +28,7 @@ export const suggestResorts = functions
   .runWith({
     serviceAccount: 'ai-ski-trip-sparker@appspot.gserviceaccount.com',
   })
-  .https.onCall(async (data, context) => {
+  .https.onCall(async (data) => {
     const result = await runFlow(suggestResortsFlow, data);
     return result;
   });
@@ -37,7 +37,7 @@ export const generateTripSpark = functions
   .runWith({
     serviceAccount: 'ai-ski-trip-sparker@appspot.gserviceaccount.com',
   })
-  .https.onCall(async (data, context) => {
+  .https.onCall(async (data) => {
     const result = await runFlow(generateTripSparkFlow, data);
     return result;
   });
